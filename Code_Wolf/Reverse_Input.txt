@@ -1,0 +1,77 @@
+Requirements:
+
+?? Take an input on stdin including new lines / carriage returns of unlimited length (only bounded
+
+by system memory; that is, there is no inherent limit in the program.)
+
+?? Output the reverse of the input on stdout.
+
+Example:
+
+Input:
+
+Quick brown fox
+
+He jumped over the lazy dog
+
+Output:
+
+god yzal eht revo depmuj eH
+
+xof nworb kciuQ
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assign02
+{
+    class Prob17
+    {
+
+       
+        static void Main(string[] args)
+
+        { 
+            string output = null;
+            do
+            {
+               string line = Console.ReadLine();
+                if(string.IsNullOrEmpty(line))
+                {
+                    break;
+                }
+
+                string reversed = "";
+                for(int i=line.Length-1;i>=0;i--)
+                {
+                    reversed += line[i];
+                }
+                if(output==null)
+                {
+                    output = reversed;
+                }
+
+                else
+                {
+                    output = reversed + Environment.NewLine + output;
+                }
+
+                
+            }
+
+            while (true);
+
+            Console.WriteLine(output);
+            Console.ReadLine();
+            
+
+
+        }
+
+    }
+}

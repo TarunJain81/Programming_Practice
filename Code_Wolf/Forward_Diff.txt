@@ -1,0 +1,94 @@
+Forward Difference. Given a list of integers produce a Forward Difference nn n 1 aa a ?? ? ? at a specified
+
+depth.
+
+For the list of integers { 10, 18, -12, 4, 8, -3, -5, 67, 9, 14 },
+
+the Forward Differences at the various orders/depths are:
+
+Depth Forward Difference
+
+0     0,  18,  -12,  4,  8,  -3,  -5,  67,  9,  14
+
+1       8,  -30,  16,  4,  -11,  -2,   72, -58, 5
+       
+2       -38, 46, -12, -15, 9, 74, -130, 63
+
+3           84, -58, -3, 24, 65, -204, 193
+
+4            -142, 55, 27, 41, -269, 397
+
+5                 197, -28, 14, -310, 666
+
+6                   -225, 42, -324, 976
+
+7                    267, -366, 1300
+
+8                       -633, 1666
+
+9                         2299
+
+
+
+So with the input of
+
+4, { 10, 18, -12, 4, 8, -3, -5, 67, 9, 14 }
+
+You would return the list
+
+{ -142, 55, 27, 41, -269, 397 }
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ISAM5430_Class03.Fall2016
+{
+    class Problem16
+    {
+       public static void Main()
+        {
+
+          
+              List<int> k = forwardDiff(4, new int[] { 10, 18, -12, 4, 8, -3, -5, 67, 9, 14 });
+            foreach (var s in k)
+                Console.WriteLine(" " + s);
+            Console.ReadLine();
+        }
+
+        public static List<int> forwardDiff(int n,int[] array)
+        {
+           
+            List<int> result = new List<int>();
+            List<int> result1 = new List<int>();
+
+            for (int j = 1; j < array.Length; j++)
+            {
+                result.Add(array[j] - array[j - 1]);
+
+
+            }
+            for (int i=1;i<n;i++)
+            {
+                result1.Clear();
+                for (int j=1;j<result.Count;j++)
+                {
+                    result1.Add(result[j] - result[j - 1]);
+                   
+                   
+                }
+                result.Clear();
+                for (int j = 0; j < result1.Count; j++)
+                {
+                    result.Add(result1[j]);
+                }
+               
+            }
+
+            return result1;
+        }
+    }
+}

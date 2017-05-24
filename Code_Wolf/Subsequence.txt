@@ -1,0 +1,70 @@
+Given strings X and Y, determine whether X is a subsequence of Y. The empty string is regarded
+
+as a subsequence of every string. (E.g., '' and 'anna' are subsequences of 'banana'.)
+
+Input
+
+?? X, a possibly-empty case-sensitive alphanumeric string
+
+?? Y, a possibly-empty case-sensitive alphanumeric string
+
+Output
+
+?? True or False (or equivalents), correctly indicating whether X is a subsequence of Y.
+
+I/O examples
+
+X Y output
+
+'' 'z00' True
+
+'z00' 'z00' True
+
+'z00' '00z0' False
+
+'aa' 'anna' True
+
+'anna' 'banana' True
+
+'Anna' 'banana' False
+
+public static void main(String[] args) {
+        // TODO code application logic here
+        
+        System.out.println(subsequence("ooooo","zooooo"));
+    }
+    
+    public static boolean subsequence(String X,String Y)
+    {
+        
+        boolean valid = false;
+        int j=0,i=0;
+        if(X.length()>0)
+        {
+        for(i=0;i<X.length();i++)
+        {
+            valid = false;
+            while(j<Y.length())
+            {
+           
+            
+                if(X.charAt(i)==Y.charAt(j))
+                {
+                    j++;
+                    valid=true;
+                    break;
+                   
+                }
+                
+                j++;
+              
+            }
+        }    
+                
+                return valid;
+    }
+        else
+            return true;
+    
+}
+}

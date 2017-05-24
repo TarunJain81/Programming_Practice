@@ -1,0 +1,71 @@
+Implement a simple integer operation scriptable calculator.
+
+Concept
+
+The accumulator starts at 0 and has operations performed on it. At the end of the program output the
+
+value of the accumulator.
+
+Operations:
+
+?? + adds 1 to the accumulator
+
+?? - subtracts 1 from the accumulator
+
+?? * multiplies the accumulator by 2
+
+?? / divides the accumulator by 2
+
+Sample script
+
+The input ++**--/ should give the output 3.
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assign02
+{
+    class Prob24
+    {
+        static int accumulator = 0;
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter q to Quit");
+            string s = "";
+            do
+            {
+                
+                 s = Console.ReadLine(); 
+
+                switch(s)
+                {
+                    case "+":
+                        accumulator++;
+                        break;
+                    case "-":
+                        accumulator--;
+                        break;
+
+                    case "*":
+                        accumulator *= 2;
+                        break;
+                    case "/":
+                        accumulator /= 2;
+                        break;
+
+
+                }
+
+            }
+            while (s != "q");
+
+            Console.WriteLine(accumulator);
+
+            Console.ReadLine();
+        }
+    }
+}

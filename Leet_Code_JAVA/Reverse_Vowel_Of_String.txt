@@ -1,0 +1,43 @@
+Write a function that takes a string as input and reverse only the vowels of a string.
+
+Example 1:
+Given s = "hello", return "holle".
+
+Example 2:
+Given s = "leetcode", return "leotcede".
+
+Note:
+The vowels does not include the letter "y".
+
+
+public class Solution {
+    public string ReverseVowels(string s) {
+        
+         List<char> vowel = new List<char>();
+            char[] final = new char[s.Length];
+            
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u' || s[i] == 'u' || s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U')
+                    vowel.Add(s[i]);
+            }
+            int k = 0;
+            int j = vowel.Count-1;
+            for (int i = 0; i < s.Length; i++)
+            {
+              
+                if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u' || s[i] == 'u' || s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U')
+                {
+                    final[k] = vowel[j];
+                    j--;
+                }
+                else
+                     final[k] = s[i];
+                k++;
+            }
+            string str = new string(final);
+            return str;
+        
+    }
+}
